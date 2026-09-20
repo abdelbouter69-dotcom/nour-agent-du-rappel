@@ -1,0 +1,25 @@
+{
+  "_note": "Textes arabes vocalisés. Ne jamais copier-coller depuis le terminal — l'affichage RTL y est inversé. Éditer ce fichier directement, valider en envoyant un vrai email.",
+  "salutation": "السَّلَامُ عَلَيْكُمْ وَرَحْمَةُ اللَّهِ وَبَرَكَاتُهُ",
+  "corps": "صَلَاةُ %(nom_priere)s فِي السَّاعَةِ %(heure)s — بَعْدَ %(minutes_ar)s.",
+  "siwak": "تَذَكَّرِ السِّوَاكَ وَالطِّيبَ قَبْلَ الصَّلَاةِ.",
+  "sujet": "تَذْكِيرٌ بِصَلَاةِ %(nom_priere)s %(heure)s — بَعْدَ %(minutes_ar)s",
+  "prieres": {
+    "Fajr": "الْفَجْرِ",
+    "Dhuhr": "الظُّهْرِ",
+    "Asr": "الْعَصْرِ",
+    "Maghrib": "الْمَغْرِبِ",
+    "Isha": "الْعِشَاءِ"
+  },
+  "minutes": {
+    "5": "خَمْسِ دَقَائِقَ",
+    "10": "عَشْرِ دَقَائِقَ",
+    "15": "خَمْسَ عَشْرَةَ دَقِيقَةً",
+    "20": "عِشْرِينَ دَقِيقَةً",
+    "25": "خَمْسٍ وَعِشْرِينَ دَقِيقَةً",
+    "30": "ثَلَاثِينَ دَقِيقَةً",
+    "45": "خَمْسٍ وَأَرْبَعِينَ دَقِيقَةً",
+    "60": "سِتِّينَ دَقِيقَةً"
+  },
+  "_minutes_note": "Formes correctes du tamyiz : de 3 a 10 pluriel genitif (daqa'iqa), de 11 a 99 singulier accusatif (daqiqatan). Ajouter une entree ici plutot que de laisser le code composer un nombre nu."
+}

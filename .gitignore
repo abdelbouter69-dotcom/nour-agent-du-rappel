@@ -1,0 +1,23 @@
+# Secrets — ne jamais committer
+.env
+
+# Cache local des horaires — inutile sur le serveur
+cache/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# Environnements virtuels
+venv/
+.venv/
+env/
+
+# Captures d'écran du webinaire Naiom — hors périmètre de ce dépôt
+captures-webinaire-naiom/
+
+# Notes personnelles — ne pas publier
+LISEZ-MOI.md

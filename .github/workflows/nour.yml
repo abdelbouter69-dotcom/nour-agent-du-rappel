@@ -1,0 +1,64 @@
+name: Nour — Rappels de prière
+
+on:
+  schedule:
+    # Toutes les 5 minutes — couvre les 5 prières quelle que soit la saison
+    - cron: '*/5 * * * *'
+  workflow_dispatch:
+    # Déclenchement manuel depuis l'onglet "Actions" de GitHub (pour tester)
+
+# Sérialise les exécutions : une seule à la fois, les suivantes attendent.
+# cancel-in-progress: false = ne jamais annuler un envoi en cours.
+concurrency:
+  group: nour-rappel
+  cancel-in-progress: false
+
+permissions:
+  contents: write   # nécessaire pour que Nour puisse committer l'état
+
+jobs:
+  rappel:
+    runs-on: ubuntu-latest
+
+    env:
+      # Secrets Gmail — à saisir dans Settings > Secrets and variables > Actions
+      GMAIL_USER:             ${{ secrets.GMAIL_USER }}
+      GMAIL_APP_PASSWORD:     ${{ secrets.GMAIL_APP_PASSWORD }}
+      RECIPIENT_EMAIL:        ${{ secrets.RECIPIENT_EMAIL }}
+
+      # Réglages non sensibles — modifiables ici directement
+      SENDER_NAME:            Nour
+      LANGUAGE:               ar
+      REMINDER_DELAY_MINUTES: "20"
+      PRAYER_CALC_METHOD:     "99"
+      PRAYER_METHOD_SETTINGS: "12,null,90 min"
+      PRAYER_SCHOOL:          "0"
+      PRAYER_TUNE:            "0,-3,0,4,-4,0,0,0,0"
+      DEFAULT_CITY:           Villefranche-sur-Saone
+      DEFAULT_COUNTRY:        France
+      DEFAULT_LATITUDE:       "45.9894"
+      DEFAULT_LONGITUDE:      "4.7186"
+      DEFAULT_TIMEZONE:       Europe/Paris
+
+    steps:
+      - name: Récupérer le dépôt
+        uses: actions/checkout@v4
+
+      - name: Configurer Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Lancer Nour
+        run: python lancer_actions.py
+
+      - name: Enregistrer l'état dans le dépôt
+        run: |
+          git config user.name "Nour"
+          git config user.email "nour@users.noreply.github.com"
+          git add etat/journal.json
+          if ! git diff --staged --quiet; then
+            git commit -m "Nour: rappel enregistré $(date -u '+%Y-%m-%d %H:%M UTC')"
+            git pull --rebase
+            git push
+          fi
