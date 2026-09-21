@@ -13,6 +13,12 @@ from nour.horaires import obtenir_horaires, PRIERES
 
 _VILLES_PATH   = Path(__file__).parent / 'villes.json'
 _POSITION_PATH = Path(__file__).parent.parent / 'etat' / 'position.json'
+_TEXTES_AR     = json.loads(
+    (Path(__file__).parent / 'textes_ar.json').read_text(encoding='utf-8')
+)
+
+_SALUTATION_AR = _TEXTES_AR['salutation']
+_SALUTATION_FR = 'as-salāmu ʿalaykum wa raḥmatu Llāhi wa barakātuh'
 
 
 def _charger_villes() -> dict:
@@ -138,19 +144,45 @@ def traiter_reponses() -> None:
                     _mettre_a_jour_position(ville_trouvee, infos)
 
                     prochain = _prochain_rappel_non_envoye(infos)
+                    t = _TEXTES_AR['changement_ville']
+
                     if prochain:
                         nom_p, heure_p = prochain
-                        ligne_rappel = f"Prochain rappel : {nom_p} à {heure_p}."
+                        ligne_ar = (
+                            t['corps_ville'] % {'ville': ville_trouvee}
+                            + '\n'
+                            + t['prochain_rappel'] % {'priere': nom_p, 'heure': heure_p}
+                        )
+                        ligne_fr = (
+                            f"Horaires calés sur {ville_trouvee}.\n"
+                            f"Prochain rappel : {nom_p} à {heure_p}."
+                        )
                     else:
-                        ligne_rappel = "Toutes les prières du jour ont été rappelées."
+                        ligne_ar = (
+                            t['corps_ville'] % {'ville': ville_trouvee}
+                            + '\n'
+                            + t['rappels_termines']
+                        )
+                        ligne_fr = (
+                            f"Horaires calés sur {ville_trouvee}.\n"
+                            "Toutes les prières du jour ont été rappelées."
+                        )
+
+                    corps_email = '\n'.join([
+                        _SALUTATION_AR,
+                        '',
+                        ligne_ar,
+                        '',
+                        '---',
+                        '',
+                        _SALUTATION_FR,
+                        '',
+                        ligne_fr,
+                    ])
 
                     envoyer_email(
                         sujet=f"Position mise à jour — {ville_trouvee}",
-                        corps=(
-                            "as-salāmu ʿalaykum wa raḥmatu Llāhi wa barakātuh\n\n"
-                            f"Horaires calés sur {ville_trouvee}.\n"
-                            f"{ligne_rappel}"
-                        ),
+                        corps=corps_email,
                     )
                     print(f"[OK] Ville mise à jour : {ville_trouvee}")
 

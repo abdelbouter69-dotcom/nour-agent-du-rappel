@@ -21,5 +21,10 @@
     "45": "خَمْسٍ وَأَرْبَعِينَ دَقِيقَةً",
     "60": "سِتِّينَ دَقِيقَةً"
   },
-  "_minutes_note": "Formes correctes du tamyiz : de 3 a 10 pluriel genitif (daqa'iqa), de 11 a 99 singulier accusatif (daqiqatan). Ajouter une entree ici plutot que de laisser le code composer un nombre nu."
+  "_minutes_note": "Formes correctes du tamyiz : de 3 a 10 pluriel genitif (daqa'iqa), de 11 a 99 singulier accusatif (daqiqatan). Ajouter une entree ici plutot que de laisser le code composer un nombre nu.",
+  "changement_ville": {
+    "corps_ville": "تَمَّ ضَبْطُ الْأَوْقَاتِ عَلَى %(ville)s.",
+    "prochain_rappel": "التَّذْكِيرُ التَّالِي: %(priere)s فِي السَّاعَةِ %(heure)s.",
+    "rappels_termines": "انْتَهَتْ جَمِيعُ تَذْكِيرَاتِ الْيَوْمِ."
+  }
 }

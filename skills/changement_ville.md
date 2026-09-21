@@ -25,9 +25,16 @@ Abdelkader répond à un email de Nour. Le corps de la réponse contient une ind
 
 ---
 
-## Message de confirmation — exemple en français
+## Message de confirmation — bilingue (arabe puis français)
 
 ```
+السَّلَامُ عَلَيْكُمْ وَرَحْمَةُ اللَّهِ وَبَرَكَاتُهُ
+
+تَمَّ ضَبْطُ الْأَوْقَاتِ عَلَى [NOM DE LA VILLE].
+التَّذْكِيرُ التَّالِي: [NOM DE LA PRIÈRE] فِي السَّاعَةِ [HEURE].
+
+---
+
 as-salāmu ʿalaykum wa raḥmatu Llāhi wa barakātuh
 
 Horaires calés sur [NOM DE LA VILLE].
