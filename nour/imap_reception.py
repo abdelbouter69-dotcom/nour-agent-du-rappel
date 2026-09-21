@@ -110,12 +110,15 @@ def traiter_reponses() -> None:
     try:
         with imaplib.IMAP4_SSL('imap.gmail.com') as imap:
             imap.login(config.GMAIL_USER, config.GMAIL_APP_PASSWORD)
+            print(f"[IMAP] Connecté en tant que {config.GMAIL_USER}")
             imap.select('INBOX')
 
             # Emails non lus envoyés par Abdelkader (= ses réponses)
             critere = f'(UNSEEN FROM "{config.RECIPIENT_EMAIL}")'
             _, nums = imap.search(None, critere)
             uids = nums[0].split()
+
+            print(f"[IMAP] Emails non lus de {config.RECIPIENT_EMAIL} : {len(uids)}")
 
             for uid in uids:
                 _, data = imap.fetch(uid, '(RFC822)')
@@ -124,7 +127,11 @@ def traiter_reponses() -> None:
 
                 msg = email.message_from_bytes(data[0][1])
                 corps = _extraire_corps(msg)
+                apercu = corps.strip()[:80].replace('\n', ' ')
+                print(f"[IMAP] Email trouvé — début du corps : « {apercu} »")
+
                 ville_trouvee = _detecter_ville(corps, villes)
+                print(f"[IMAP] Ville détectée : {ville_trouvee!r}")
 
                 if ville_trouvee:
                     infos = villes[ville_trouvee]
