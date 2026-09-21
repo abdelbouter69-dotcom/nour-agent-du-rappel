@@ -1,6 +1,8 @@
 {
   "date": "2026-09-21",
-  "envoyes": [],
+  "envoyes": [
+    "Maghrib"
+  ],
   "timings": {
     "Fajr": "06:19",
     "Dhuhr": "13:38",
