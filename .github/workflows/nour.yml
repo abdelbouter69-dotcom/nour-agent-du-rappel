@@ -56,7 +56,8 @@ jobs:
         run: |
           git config user.name "Nour"
           git config user.email "nour@users.noreply.github.com"
-          git add etat/journal.json etat/position.json
+          git add etat/journal.json
+          if [ -f etat/position.json ]; then git add etat/position.json; fi
           if ! git diff --staged --quiet; then
             git commit -m "Nour: rappel enregistré $(date -u '+%Y-%m-%d %H:%M UTC')"
             git pull --rebase
