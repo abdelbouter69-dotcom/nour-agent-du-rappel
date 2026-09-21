@@ -3,10 +3,12 @@ Point d'entrée pour GitHub Actions.
 Lancer : python lancer_actions.py
 """
 import sys
+from nour.imap_reception import traiter_reponses
 from nour.superviseur import verifier_et_envoyer
 
 
 def main():
+    traiter_reponses()
     envoyes = verifier_et_envoyer()
     if envoyes:
         print(f"Rappels envoyés : {', '.join(envoyes)}")

@@ -1,4 +1,5 @@
 """Lecture du fichier .env et exposition des réglages de Nour."""
+import json
 import os
 from pathlib import Path
 
@@ -44,3 +45,14 @@ DEFAULT_TIMEZONE    = os.environ.get('DEFAULT_TIMEZONE', 'Europe/Paris')
 # Répertoire du cache
 CACHE_DIR = _ROOT / 'cache'
 CACHE_DIR.mkdir(exist_ok=True)
+
+# Position persistée — écrase les valeurs par défaut si etat/position.json existe
+_POSITION_PATH = _ROOT / 'etat' / 'position.json'
+if _POSITION_PATH.exists():
+    with open(_POSITION_PATH, encoding='utf-8') as _f:
+        _pos = json.load(_f)
+    DEFAULT_LATITUDE  = float(_pos.get('lat',    DEFAULT_LATITUDE))
+    DEFAULT_LONGITUDE = float(_pos.get('lon',    DEFAULT_LONGITUDE))
+    DEFAULT_CITY      = _pos.get('ville',  DEFAULT_CITY)
+    DEFAULT_COUNTRY   = _pos.get('pays',   DEFAULT_COUNTRY)
+    DEFAULT_TIMEZONE  = _pos.get('fuseau', DEFAULT_TIMEZONE)

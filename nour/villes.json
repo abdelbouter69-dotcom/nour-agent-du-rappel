@@ -1,0 +1,92 @@
+{
+  "Villefranche-sur-Saone": {
+    "lat": 45.9894,
+    "lon": 4.7186,
+    "pays": "France",
+    "fuseau": "Europe/Paris"
+  },
+  "Lyon": {
+    "lat": 45.7640,
+    "lon": 4.8357,
+    "pays": "France",
+    "fuseau": "Europe/Paris"
+  },
+  "Paris": {
+    "lat": 48.8566,
+    "lon": 2.3522,
+    "pays": "France",
+    "fuseau": "Europe/Paris"
+  },
+  "Marseille": {
+    "lat": 43.2965,
+    "lon": 5.3698,
+    "pays": "France",
+    "fuseau": "Europe/Paris"
+  },
+  "Bordeaux": {
+    "lat": 44.8378,
+    "lon": -0.5792,
+    "pays": "France",
+    "fuseau": "Europe/Paris"
+  },
+  "Strasbourg": {
+    "lat": 48.5734,
+    "lon": 7.7521,
+    "pays": "France",
+    "fuseau": "Europe/Paris"
+  },
+  "Lille": {
+    "lat": 50.6292,
+    "lon": 3.0573,
+    "pays": "France",
+    "fuseau": "Europe/Paris"
+  },
+  "Toulouse": {
+    "lat": 43.6047,
+    "lon": 1.4442,
+    "pays": "France",
+    "fuseau": "Europe/Paris"
+  },
+  "Tlemcen": {
+    "lat": 34.8886,
+    "lon": -1.3150,
+    "pays": "Algeria",
+    "fuseau": "Africa/Algiers"
+  },
+  "Alger": {
+    "lat": 36.7372,
+    "lon": 3.0865,
+    "pays": "Algeria",
+    "fuseau": "Africa/Algiers"
+  },
+  "Oran": {
+    "lat": 35.6911,
+    "lon": -0.6417,
+    "pays": "Algeria",
+    "fuseau": "Africa/Algiers"
+  },
+  "Constantine": {
+    "lat": 36.3650,
+    "lon": 6.6147,
+    "pays": "Algeria",
+    "fuseau": "Africa/Algiers"
+  },
+  "Tunis": {
+    "lat": 36.8190,
+    "lon": 10.1658,
+    "pays": "Tunisia",
+    "fuseau": "Africa/Tunis"
+  },
+  "Casablanca": {
+    "lat": 33.5731,
+    "lon": -7.5898,
+    "pays": "Morocco",
+    "fuseau": "Africa/Casablanca"
+  },
+  "Rabat": {
+    "lat": 33.9716,
+    "lon": -6.8498,
+    "pays": "Morocco",
+    "fuseau": "Africa/Casablanca"
+  }
+}
