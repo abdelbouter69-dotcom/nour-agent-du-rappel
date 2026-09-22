@@ -1,17 +1,11 @@
 {
-  "date": "2026-09-22",
-  "envoyes": [
-    "Fajr",
-    "Dhuhr",
-    "Asr",
-    "Maghrib",
-    "Isha"
-  ],
+  "date": "2026-09-23",
+  "envoyes": [],
   "timings": {
-    "Fajr": "06:20",
-    "Dhuhr": "13:38",
-    "Asr": "16:54",
-    "Maghrib": "19:39",
-    "Isha": "21:09"
+    "Fajr": "06:21",
+    "Dhuhr": "13:37",
+    "Asr": "16:52",
+    "Maghrib": "19:37",
+    "Isha": "21:07"
   }
 }
