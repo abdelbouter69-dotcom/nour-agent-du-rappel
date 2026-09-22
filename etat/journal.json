@@ -4,7 +4,8 @@
     "Fajr",
     "Dhuhr",
     "Asr",
-    "Maghrib"
+    "Maghrib",
+    "Isha"
   ],
   "timings": {
     "Fajr": "06:20",
