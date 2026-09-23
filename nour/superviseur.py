@@ -46,9 +46,9 @@ def verifier_et_envoyer() -> list:
 
         # Fenêtre d'envoi : entre l'heure de rappel et l'heure de la prière
         if heure_rappel <= maintenant < heure_priere:
-            # Minutes réellement restantes, arrondies aux 5 minutes les plus proches
-            minutes_reelles = int((heure_priere - maintenant).total_seconds() / 60)
-            minutes_msg = max(5, round(minutes_reelles / 5) * 5)
+            # Minutes réellement restantes, arrondies à la minute la plus proche
+            minutes_reelles = round((heure_priere - maintenant).total_seconds() / 60)
+            minutes_msg = max(1, minutes_reelles)
 
             message = composer_rappel(priere, heure_str, minutes_msg)
             resultat = envoyer_email(message['sujet'], message['corps'])
