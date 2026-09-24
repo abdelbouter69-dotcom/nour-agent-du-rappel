@@ -3,7 +3,8 @@
   "envoyes": [
     "Fajr",
     "Dhuhr",
-    "Asr"
+    "Asr",
+    "Maghrib"
   ],
   "timings": {
     "Fajr": "06:23",
